@@ -94,6 +94,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_member_exists: {
+        Args: { p_email: string; p_phone: string }
+        Returns: Json
+      }
       get_member_for_reset: { Args: { identifier: string }; Returns: Json }
       recover_registration: { Args: { identifier: string }; Returns: Json }
       register_member: { Args: { p: Json }; Returns: Json }
