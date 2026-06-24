@@ -70,7 +70,7 @@ function Reset() {
       setError("No registration found with those details.");
       return;
     }
-    setError("message" in res ? res.message : "Something went wrong. Please try again.");
+    setError(("message" in res && res.message) || "Something went wrong. Please try again.");
   }
 
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
@@ -88,7 +88,7 @@ function Reset() {
       if (res.status === "ok") {
         setProofPath(res.path);
       } else {
-        setError("message" in res ? res.message : "Upload failed. Try again.");
+        setError(("message" in res && res.message) || "Upload failed. Try again.");
       }
     } catch {
       setError("Upload failed. Try again.");

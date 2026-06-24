@@ -42,7 +42,7 @@ function Recover() {
       setError("We couldn't find a registration with those details. Check and try again, or sign up.");
       return;
     }
-    setError("message" in res ? res.message : "Something went wrong. Please try again.");
+    setError(("message" in res && res.message) || "Something went wrong. Please try again.");
   }
 
   return (

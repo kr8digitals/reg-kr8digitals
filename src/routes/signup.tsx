@@ -145,7 +145,7 @@ function SignUp() {
       setStep(1);
       return;
     }
-    setError("message" in res ? res.message : "Something went wrong. Please try again.");
+    setError(("message" in res && res.message) || "Something went wrong. Please try again.");
   }
 
   return (
