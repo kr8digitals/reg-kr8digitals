@@ -14,13 +14,97 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      members: {
+        Row: {
+          age: number
+          change_pin: string
+          country: string
+          created_at: string
+          date_of_birth: string
+          email: string
+          full_name: string
+          generated_reg_number: string
+          id: string
+          is_student: boolean
+          reset_screenshot_url: string | null
+          school_level: string | null
+          school_name: string | null
+          sequence_number: number
+          skill_code: string
+          whatsapp_number: string
+        }
+        Insert: {
+          age: number
+          change_pin: string
+          country: string
+          created_at?: string
+          date_of_birth: string
+          email: string
+          full_name: string
+          generated_reg_number: string
+          id?: string
+          is_student?: boolean
+          reset_screenshot_url?: string | null
+          school_level?: string | null
+          school_name?: string | null
+          sequence_number: number
+          skill_code: string
+          whatsapp_number: string
+        }
+        Update: {
+          age?: number
+          change_pin?: string
+          country?: string
+          created_at?: string
+          date_of_birth?: string
+          email?: string
+          full_name?: string
+          generated_reg_number?: string
+          id?: string
+          is_student?: boolean
+          reset_screenshot_url?: string | null
+          school_level?: string | null
+          school_name?: string | null
+          sequence_number?: number
+          skill_code?: string
+          whatsapp_number?: string
+        }
+        Relationships: []
+      }
+      settings: {
+        Row: {
+          key: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          key: string
+          updated_at?: string
+          value: string
+        }
+        Update: {
+          key?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_member_for_reset: { Args: { identifier: string }; Returns: Json }
+      recover_registration: { Args: { identifier: string }; Returns: Json }
+      register_member: { Args: { p: Json }; Returns: Json }
+      reset_registration: {
+        Args: {
+          identifier: string
+          new_skill_code: string
+          screenshot_url: string
+        }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never
