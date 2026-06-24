@@ -120,7 +120,7 @@ function Reset() {
       setStage("done");
       return;
     }
-    setError("message" in res ? res.message : "Something went wrong. Please try again.");
+    setError(("message" in res && res.message) || "Something went wrong. Please try again.");
   }
 
   return (
