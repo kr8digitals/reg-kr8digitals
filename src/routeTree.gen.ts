@@ -13,6 +13,7 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SigninRouteImport } from './routes/signin'
 import { Route as ResetRouteImport } from './routes/reset'
 import { Route as RecoverRouteImport } from './routes/recover'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SignupRoute = SignupRouteImport.update({
@@ -35,6 +36,11 @@ const RecoverRoute = RecoverRouteImport.update({
   path: '/recover',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/recover': typeof RecoverRoute
   '/reset': typeof ResetRoute
   '/signin': typeof SigninRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/recover': typeof RecoverRoute
   '/reset': typeof ResetRoute
   '/signin': typeof SigninRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/recover': typeof RecoverRoute
   '/reset': typeof ResetRoute
   '/signin': typeof SigninRoute
@@ -65,14 +74,22 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/recover' | '/reset' | '/signin' | '/signup'
+  fullPaths: '/' | '/admin' | '/recover' | '/reset' | '/signin' | '/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/recover' | '/reset' | '/signin' | '/signup'
-  id: '__root__' | '/' | '/recover' | '/reset' | '/signin' | '/signup'
+  to: '/' | '/admin' | '/recover' | '/reset' | '/signin' | '/signup'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/recover'
+    | '/reset'
+    | '/signin'
+    | '/signup'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   RecoverRoute: typeof RecoverRoute
   ResetRoute: typeof ResetRoute
   SigninRoute: typeof SigninRoute
@@ -109,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecoverRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -121,6 +145,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   RecoverRoute: RecoverRoute,
   ResetRoute: ResetRoute,
   SigninRoute: SigninRoute,
