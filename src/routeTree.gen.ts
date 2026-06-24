@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SigninRouteImport } from './routes/signin'
+import { Route as ResetRouteImport } from './routes/reset'
 import { Route as RecoverRouteImport } from './routes/recover'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const SignupRoute = SignupRouteImport.update({
 const SigninRoute = SigninRouteImport.update({
   id: '/signin',
   path: '/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetRoute = ResetRouteImport.update({
+  id: '/reset',
+  path: '/reset',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RecoverRoute = RecoverRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/recover': typeof RecoverRoute
+  '/reset': typeof ResetRoute
   '/signin': typeof SigninRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/recover': typeof RecoverRoute
+  '/reset': typeof ResetRoute
   '/signin': typeof SigninRoute
   '/signup': typeof SignupRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/recover': typeof RecoverRoute
+  '/reset': typeof ResetRoute
   '/signin': typeof SigninRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/recover' | '/signin' | '/signup'
+  fullPaths: '/' | '/recover' | '/reset' | '/signin' | '/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/recover' | '/signin' | '/signup'
-  id: '__root__' | '/' | '/recover' | '/signin' | '/signup'
+  to: '/' | '/recover' | '/reset' | '/signin' | '/signup'
+  id: '__root__' | '/' | '/recover' | '/reset' | '/signin' | '/signup'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RecoverRoute: typeof RecoverRoute
+  ResetRoute: typeof ResetRoute
   SigninRoute: typeof SigninRoute
   SignupRoute: typeof SignupRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/signin'
       fullPath: '/signin'
       preLoaderRoute: typeof SigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset': {
+      id: '/reset'
+      path: '/reset'
+      fullPath: '/reset'
+      preLoaderRoute: typeof ResetRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/recover': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RecoverRoute: RecoverRoute,
+  ResetRoute: ResetRoute,
   SigninRoute: SigninRoute,
   SignupRoute: SignupRoute,
 }
