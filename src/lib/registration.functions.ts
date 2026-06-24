@@ -8,6 +8,33 @@ function clean(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
 }
 
+// ===================== CHECK DUPLICATE (Step 1 gate) =====================
+export const checkDuplicate = createServerFn({ method: "POST" })
+  .inputValidator((data: { email: string; whatsapp_number: string }) => data)
+  .handler(async ({ data }) => {
+    try {
+      const email = clean(data.email).toLowerCase();
+      const whatsapp_number = clean(data.whatsapp_number);
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      const { data: rpc, error } = await supabaseAdmin.rpc("check_member_exists", {
+        p_email: email,
+        p_phone: whatsapp_number,
+      });
+      if (error) {
+        console.error("[check-duplicate] rpc error:", error);
+        return { status: "error" as const, message: GENERIC_ERROR };
+      }
+      const result = rpc as Json;
+      const status = result?.status as string;
+      if (status === "email_exists") return { status: "email_exists" as const };
+      if (status === "phone_exists") return { status: "phone_exists" as const };
+      return { status: "ok" as const };
+    } catch (e) {
+      console.error("[check-duplicate] fatal:", e);
+      return { status: "error" as const, message: GENERIC_ERROR };
+    }
+  });
+
 // ===================== REGISTER =====================
 export const registerMember = createServerFn({ method: "POST" })
   .inputValidator((data: {
