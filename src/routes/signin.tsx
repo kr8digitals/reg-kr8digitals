@@ -6,8 +6,12 @@ export const Route = createFileRoute("/signin")({
   head: () => ({
     meta: [
       { title: "Sign In — KR8 Digitals" },
-      { name: "description", content: "Recover your KR8 Reg Number or reset your registration." },
+      { name: "description", content: "Recover your KR8 Reg Number or reset your registration track." },
+      { property: "og:title", content: "Sign In — KR8 Digitals" },
+      { property: "og:description", content: "Already registered? Recover your KR8 Reg Number or switch your skill track." },
+      { property: "og:url", content: "https://reg-kr8digitals.lovable.app/signin" },
     ],
+    links: [{ rel: "canonical", href: "https://reg-kr8digitals.lovable.app/signin" }],
   }),
   component: SignIn,
 });
