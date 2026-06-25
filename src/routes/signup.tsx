@@ -154,6 +154,7 @@ function SignUp() {
 
   return (
     <PageShell>
+      <h1 className="sr-only">Join KR8 Digitals — Free Digital Skills Registration</h1>
       {step < 3 ? <StepIndicator current={step} total={3} /> : null}
 
       {dupKind ? (
