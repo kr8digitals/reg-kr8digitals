@@ -14,8 +14,12 @@ export const Route = createFileRoute("/reset")({
   head: () => ({
     meta: [
       { title: "Reset Registration — KR8 Digitals" },
-      { name: "description", content: "Switch your KR8 Digitals skill track." },
+      { name: "description", content: "Switch your KR8 Digitals skill track. Upload proof, choose a new skill, and get an updated KR8 Registration Number and group link." },
+      { property: "og:title", content: "Reset Registration — KR8 Digitals" },
+      { property: "og:description", content: "Change the skill track on your KR8 Digitals registration and get your updated group link." },
+      { property: "og:url", content: "https://reg-kr8digitals.lovable.app/reset" },
     ],
+    links: [{ rel: "canonical", href: "https://reg-kr8digitals.lovable.app/reset" }],
   }),
   component: Reset,
 });
