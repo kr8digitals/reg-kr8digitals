@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-Sitemap: https://regkr8digitals.com/sitemap.xml
+Sitemap: https://reg-kr8digitals.lovable.app/sitemap.xml
