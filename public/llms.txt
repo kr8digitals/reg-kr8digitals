@@ -1,0 +1,13 @@
+# KR8 Digitals
+
+> Invitation-only registration portal for KR8 Digitals' free digital skills training programme. Selected applicants claim a spot, choose one skill track, and get their KR8 Registration Number.
+
+KR8 Digitals trains people in high-demand digital skills (video editing, web development, frontend development, graphic design, social media, and marketing) with real mentors and real outcomes. This site handles registration and account recovery for the programme.
+
+## Pages
+
+- [Home](/): Overview of the programme and how to claim a spot.
+- [Sign Up](/signup): Register and choose your skill track.
+- [Sign In](/signin): Recover your registration number or reset your track.
+- [Recover Registration](/recover): Retrieve your KR8 Registration Number and skill group link.
+- [Reset Registration](/reset): Switch your KR8 skill track.

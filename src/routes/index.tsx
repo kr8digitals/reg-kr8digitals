@@ -15,9 +15,9 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Claim your free spot in KR8 Digitals' digital skills training programme.",
       },
-      { property: "og:image", content: "/logo.png" },
-      { name: "twitter:image", content: "/logo.png" },
+      { property: "og:url", content: "https://reg-kr8digitals.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://reg-kr8digitals.lovable.app/" }],
   }),
   component: Landing,
 });

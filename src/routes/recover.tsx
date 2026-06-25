@@ -12,8 +12,12 @@ export const Route = createFileRoute("/recover")({
   head: () => ({
     meta: [
       { title: "Recover Your Reg Number — KR8 Digitals" },
-      { name: "description", content: "Retrieve your KR8 Registration Number and skill group link." },
+      { name: "description", content: "Retrieve your KR8 Registration Number and your skill group link using your email or WhatsApp number." },
+      { property: "og:title", content: "Recover Your Reg Number — KR8 Digitals" },
+      { property: "og:description", content: "Lost your KR8 Registration Number? Retrieve it and your skill group link in seconds." },
+      { property: "og:url", content: "https://reg-kr8digitals.lovable.app/recover" },
     ],
+    links: [{ rel: "canonical", href: "https://reg-kr8digitals.lovable.app/recover" }],
   }),
   component: Recover,
 });
