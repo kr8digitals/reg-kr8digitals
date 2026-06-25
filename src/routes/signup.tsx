@@ -16,8 +16,12 @@ export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
       { title: "Claim Your Spot — KR8 Digitals" },
-      { name: "description", content: "Complete your registration for free KR8 Digitals skills training." },
+      { name: "description", content: "Complete your registration for free KR8 Digitals skills training and choose your skill track." },
+      { property: "og:title", content: "Claim Your Spot — KR8 Digitals" },
+      { property: "og:description", content: "Register for free KR8 Digitals skills training and pick the one skill you want to master." },
+      { property: "og:url", content: "https://reg-kr8digitals.lovable.app/signup" },
     ],
+    links: [{ rel: "canonical", href: "https://reg-kr8digitals.lovable.app/signup" }],
   }),
   component: SignUp,
 });
