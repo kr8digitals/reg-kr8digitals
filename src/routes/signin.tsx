@@ -6,9 +6,9 @@ export const Route = createFileRoute("/signin")({
   head: () => ({
     meta: [
       { title: "Sign In — KR8 Digitals" },
-      { name: "description", content: "Recover your KR8 Reg Number or reset your registration track." },
+      { name: "description", content: "Recover your KR8 Identity Number or reset your registration track." },
       { property: "og:title", content: "Sign In — KR8 Digitals" },
-      { property: "og:description", content: "Already registered? Recover your KR8 Reg Number or switch your skill track." },
+      { property: "og:description", content: "Already registered? Recover your KR8 Identity Number or switch your skill track." },
       { property: "og:url", content: "https://reg-kr8digitals.lovable.app/signin" },
     ],
     links: [{ rel: "canonical", href: "https://reg-kr8digitals.lovable.app/signin" }],
@@ -28,9 +28,9 @@ function SignIn() {
             <div className="flex items-center gap-3">
               <Search className="shrink-0 text-cyan" />
               <div>
-                <h3 className="text-lg font-bold text-foreground">Recover Reg Number</h3>
+                <h3 className="text-lg font-bold text-foreground">Recover Identity Number</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Get your KR8 Reg Number and skill group link back.
+                  Get your KR8 Identity Number and skill group link back.
                 </p>
               </div>
             </div>
