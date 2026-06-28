@@ -17,7 +17,7 @@ export function RegNumberBox({ regNumber, strike = false }: { regNumber: string;
   return (
     <div>
       <p className="mb-2 text-center text-xs font-semibold uppercase tracking-[0.18em] text-cyan">
-        Your KR8 Registration Number
+        Your KR8 Identity Number
       </p>
       <div className="reg-box">
         <span className="reg-number" style={strike ? { textDecoration: "line-through", opacity: 0.6 } : undefined}>
@@ -27,7 +27,7 @@ export function RegNumberBox({ regNumber, strike = false }: { regNumber: string;
       {!strike ? (
         <button type="button" onClick={copy} className="btn-base btn-ghost mx-auto mt-3 flex text-sm">
           {copied ? <Check size={16} /> : <Copy size={16} />}
-          {copied ? "Copied" : "Copy Reg Number"}
+          {copied ? "Copied" : "Copy Identity Number"}
         </button>
       ) : null}
     </div>
