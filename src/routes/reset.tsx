@@ -14,7 +14,7 @@ export const Route = createFileRoute("/reset")({
   head: () => ({
     meta: [
       { title: "Reset Registration — KR8 Digitals" },
-      { name: "description", content: "Switch your KR8 Digitals skill track. Upload proof, choose a new skill, and get an updated KR8 Registration Number and group link." },
+      { name: "description", content: "Switch your KR8 Digitals skill track. Upload proof, choose a new skill, and get an updated KR8 Identity Number and group link." },
       { property: "og:title", content: "Reset Registration — KR8 Digitals" },
       { property: "og:description", content: "Change the skill track on your KR8 Digitals registration and get your updated group link." },
       { property: "og:url", content: "https://reg-kr8digitals.lovable.app/reset" },
@@ -233,7 +233,7 @@ function Reset() {
 
           <div className="mt-6">
             <p className="mb-2 text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              Previous Reg Number
+              Previous Identity Number
             </p>
             <RegNumberBox regNumber={final.old_reg_number} strike />
           </div>

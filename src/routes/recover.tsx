@@ -11,10 +11,10 @@ import { recoverRegistration } from "@/lib/registration.functions";
 export const Route = createFileRoute("/recover")({
   head: () => ({
     meta: [
-      { title: "Recover Your Reg Number — KR8 Digitals" },
-      { name: "description", content: "Retrieve your KR8 Registration Number and your skill group link using your email or WhatsApp number." },
-      { property: "og:title", content: "Recover Your Reg Number — KR8 Digitals" },
-      { property: "og:description", content: "Lost your KR8 Registration Number? Retrieve it and your skill group link in seconds." },
+      { title: "Recover Your Identity Number — KR8 Digitals" },
+      { name: "description", content: "Retrieve your KR8 Identity Number and your skill group link using your email or WhatsApp number." },
+      { property: "og:title", content: "Recover Your Identity Number — KR8 Digitals" },
+      { property: "og:description", content: "Lost your KR8 Identity Number? Retrieve it and your skill group link in seconds." },
       { property: "og:url", content: "https://reg-kr8digitals.lovable.app/recover" },
     ],
     links: [{ rel: "canonical", href: "https://reg-kr8digitals.lovable.app/recover" }],
@@ -27,7 +27,7 @@ function Recover() {
   const [identifier, setIdentifier] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [result, setResult] = useState<{ reg_number: string; group_link: string; skill_code: string } | null>(null);
+  const [result, setResult] = useState<{ reg_number: string; group_link: string; skill_code: string; full_name: string } | null>(null);
 
   async function handle() {
     setError("");
@@ -39,7 +39,7 @@ function Recover() {
     const res = await recover({ data: { identifier } });
     setLoading(false);
     if (res.status === "ok") {
-      setResult({ reg_number: res.reg_number, group_link: res.group_link, skill_code: res.skill_code });
+      setResult({ reg_number: res.reg_number, group_link: res.group_link, skill_code: res.skill_code, full_name: res.full_name });
       return;
     }
     if (res.status === "not_found") {
@@ -53,7 +53,7 @@ function Recover() {
     <PageShell>
       {!result ? (
         <div className="glow-card slide-in">
-          <h1 className="text-2xl font-extrabold text-foreground">Recover Reg Number</h1>
+          <h1 className="text-2xl font-extrabold text-foreground">Recover Identity Number</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             Enter the email or WhatsApp number you registered with.
           </p>
@@ -75,7 +75,7 @@ function Recover() {
           </div>
 
           <button type="button" onClick={handle} disabled={loading} className="btn-base btn-primary mt-6 w-full">
-            {loading ? <Spinner /> : "Find My Reg Number"}
+            {loading ? <Spinner /> : "Find My Identity Number"}
           </button>
           <Link to="/signin" className="btn-base btn-ghost mt-3 w-full text-sm">
             Back
@@ -85,9 +85,13 @@ function Recover() {
         <div className="glow-card slide-in text-center">
           <h1 className="text-2xl font-extrabold gradient-text-gc">Found it. 🔍</h1>
           <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground">
-            Here's your KR8 Reg Number. Screenshot it and keep it safe.
+            Here's your KR8 Identity Number. Screenshot it and keep it safe.
           </p>
-          <div className="mt-6">
+          <div className="mt-5 rounded-xl border border-border/60 bg-background/40 px-4 py-3">
+            <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Registered name</p>
+            <p className="mt-1 text-base font-semibold text-foreground">{result.full_name}</p>
+          </div>
+          <div className="mt-5">
             <RegNumberBox regNumber={result.reg_number} />
           </div>
           <p className="mt-5 text-sm text-muted-foreground">

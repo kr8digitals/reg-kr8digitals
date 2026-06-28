@@ -336,7 +336,7 @@ function SignUp() {
           <div className="glow-card text-center">
             <h2 className="text-4xl font-extrabold gradient-text-gc">Access Granted. 🔓</h2>
             <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Your free training spot has been secured. This is your KR8 Reg Number — it's your proof of access.
+              Your free training spot has been secured. This is your KR8 Identity Number — it's your proof of access.
               Screenshot it, guard it.
             </p>
 

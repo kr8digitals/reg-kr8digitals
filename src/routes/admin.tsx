@@ -160,7 +160,7 @@ function Admin() {
                   <th className="py-2 pr-3">Country</th>
                   <th className="py-2 pr-3">Age</th>
                   <th className="py-2 pr-3">Skill</th>
-                  <th className="py-2 pr-3">Reg Number</th>
+                  <th className="py-2 pr-3">Identity Number</th>
                   <th className="py-2 pr-3">Student</th>
                   <th className="py-2 pr-3">Change PIN</th>
                   <th className="py-2 pr-3">Proof</th>

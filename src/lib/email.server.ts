@@ -68,18 +68,18 @@ export function buildRegistrationEmail(d: {
   group_link: string;
 }): EmailContent {
   return {
-    subject: "🔓 Access Granted — Your KR8 Reg Number Inside",
+    subject: "🔓 Access Granted — Your KR8 Identity Number Inside",
     html: baseLayout({
       preheader: "Your free training spot has been secured.",
       heading: "Your free training spot has been secured.",
       bodyHtml: `
         ${p(`Hey <strong style="color:#fff;">${d.full_name}</strong>, you didn't just sign up — you were selected.`)}
-        <p style="margin:0 0 6px;font-size:13px;color:#00E5FF;text-align:center;letter-spacing:0.05em;">Your KR8 Registration Number</p>
+        <p style="margin:0 0 6px;font-size:13px;color:#00E5FF;text-align:center;letter-spacing:0.05em;">Your KR8 Identity Number</p>
         ${regBox(d.reg_number)}
         ${p(`Screenshot this and keep it safe. This is your proof of access.`)}
         ${p(`<strong style="color:#fff;">Your Skill Track:</strong> ${d.skill}`)}
         ${ctaButton(d.group_link, "Join Your WhatsApp Training Group →")}
-        ${p(`<span style="font-size:13px;color:#8A7AB0;">This link is specific to your skill track. Do not share your Reg Number.</span>`)}
+        ${p(`<span style="font-size:13px;color:#8A7AB0;">This link is specific to your skill track. Do not share your Identity Number.</span>`)}
       `,
     }),
   };
@@ -99,9 +99,9 @@ export function buildResetEmail(d: {
       heading: "Your registration has been updated.",
       bodyHtml: `
         ${p(`Hey <strong style="color:#fff;">${d.full_name}</strong>, here are your updated details.`)}
-        <p style="margin:0 0 6px;font-size:13px;color:#8A7AB0;text-align:center;">Previous Reg Number</p>
+        <p style="margin:0 0 6px;font-size:13px;color:#8A7AB0;text-align:center;">Previous Identity Number</p>
         ${regBox(d.old_reg_number, true)}
-        <p style="margin:0 0 6px;font-size:13px;color:#00E5FF;text-align:center;letter-spacing:0.05em;">Your New KR8 Registration Number</p>
+        <p style="margin:0 0 6px;font-size:13px;color:#00E5FF;text-align:center;letter-spacing:0.05em;">Your New KR8 Identity Number</p>
         ${regBox(d.reg_number)}
         ${p(`<strong style="color:#fff;">Your New Skill Track:</strong> ${d.skill}`)}
         ${ctaButton(d.group_link, "Join Your New WhatsApp Group →")}
@@ -118,13 +118,13 @@ export function buildRecoveryEmail(d: {
   group_link: string;
 }): EmailContent {
   return {
-    subject: "🔍 Here's Your KR8 Reg Number",
+    subject: "🔍 Here's Your KR8 Identity Number",
     html: baseLayout({
-      preheader: "Here's your KR8 Reg Number.",
-      heading: "Here's your KR8 Reg Number.",
+      preheader: "Here's your KR8 Identity Number.",
+      heading: "Here's your KR8 Identity Number.",
       bodyHtml: `
         ${p(`Hey <strong style="color:#fff;">${d.full_name}</strong>, as requested — guard this carefully.`)}
-        <p style="margin:0 0 6px;font-size:13px;color:#00E5FF;text-align:center;letter-spacing:0.05em;">Your KR8 Registration Number</p>
+        <p style="margin:0 0 6px;font-size:13px;color:#00E5FF;text-align:center;letter-spacing:0.05em;">Your KR8 Identity Number</p>
         ${regBox(d.reg_number)}
         ${p(`<strong style="color:#fff;">Your Skill Track:</strong> ${d.skill}`)}
         ${ctaButton(d.group_link, "Open Your WhatsApp Training Group →")}
