@@ -167,7 +167,7 @@ export const recoverRegistration = createServerFn({ method: "POST" })
         console.error("[recover] email step failed silently:", e);
       }
 
-      return { status: "ok" as const, reg_number, skill_code, group_link };
+      return { status: "ok" as const, reg_number, skill_code, group_link, full_name: result.full_name as string };
     } catch (e) {
       console.error("[recover] fatal:", e);
       return { status: "error" as const, message: GENERIC_ERROR };
